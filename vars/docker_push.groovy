@@ -3,6 +3,6 @@
    {
                 sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
    
-                 sh 'docker push ${dockerHubUser}/${ProjectName}:${ImageTag}'
+                 sh "docker push ${dockerHubUser}/${ProjectName}:${ImageTag}"
  }
  }
