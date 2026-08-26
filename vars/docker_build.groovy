@@ -1,4 +1,8 @@
 // Define function
-def call(String ProjectName, String ImageTag, String DockerHubUser){
-  sh "docker build -t ${DockerHubUser}/${ProjectName}:${ImageTag} ."
+def call(String ProjectName, String ImageTag){
+   withCredentials([usernamePassword(credentialsId:'dockerhubcred',usernameVariable:'dockerhubuser', passwordVariable:'dockerhubpass')])
+   {
+               sh "docker build -t ${dockerhubuser}/${ProjectName}:${ImageTag} ."
+ }
+  
 }
